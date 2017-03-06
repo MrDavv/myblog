@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/title.png" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <!--左侧-->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#menus">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">zking博客</a>
+    </div>
+    <div class="collapse navbar-collapse" id="menus">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/users/reg">注册</a></li>
+            <li><a href="/users/login">登录</a></li>
+            <li><a href="/articles/add">发表文章</a></li>
+            <li><a href="/users/logout">注销</a></li>
+        </ul>
+    </div>
+</nav>

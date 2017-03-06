@@ -5,25 +5,33 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+//设置我们的app应用的路由架构，引入各个功能模块
 var index = require('./routes/index');
 var users = require('./routes/users');
+var articles = require('./routes/articles');
 
 var app = express();
 
-// view engine setup
+// 设置模板引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
+//使用bodyParser解析post请求提交的数据
+app.use(bodyParser.json());//解析json数据
+//解析普通数据，解析过后的数据放在req.body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+//设置静态路由
 app.use(express.static(path.join(__dirname, 'public')));
 
+//路由映射，路由的设定应该遵循Restful设计原则
 app.use('/', index);
 app.use('/users', users);
+app.use('/articles',articles);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
