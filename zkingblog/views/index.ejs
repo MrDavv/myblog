@@ -1,3 +1,22 @@
 <% include ./include/header.ejs%>
-<h1>这是首页</h1>
+<h1>最新博客</h1>
+<div class="container">
+    <ul class="media-list">
+        <%articles.forEach(function(a){%>
+        <li class="media">
+            <div class="media-left">
+                <img class="media-object" src="<%=a.user.avatar%>" alt=""/>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><%=a.title%></h4>
+                <p class="media-left"><%-a.content%></p>
+            </div>
+            <div class="media-bottom">
+                作者:<%=a.user.username%>
+                发表时间:<%=a.createAt.toLocaleString()%>
+            </div>
+        </li>
+        <%})%>
+    </ul>
+</div>
 <% include ./include/footer.ejs%>
