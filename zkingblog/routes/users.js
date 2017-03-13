@@ -9,8 +9,8 @@ var router = express.Router();
 /* GET users listing. */
 //访问注册页面
 router.get('/reg',middleware.checkNotLogin,function(req,res,next){
-
-    res.render("users/reg",{title:"注册"});
+    var keyword ="";
+    res.render("users/reg",{keyword:keyword,title:"注册"});
 });
 //提交注册信息
 router.post('/reg',middleware.checkNotLogin,function(req,res,next){
@@ -44,8 +44,10 @@ router.post('/reg',middleware.checkNotLogin,function(req,res,next){
 });
 //访问登录页面
 router.get('/login', function(req, res, next) {
+    var keyword ="";
+
     console.log("访问登陆页面");
-    res.render("users/login",{title:"登录"});
+    res.render("users/login",{keyword:keyword,title:"登录"});
 });
 //使用post方式提交登陆信息
 router.post('/login', function(req, res, next) {

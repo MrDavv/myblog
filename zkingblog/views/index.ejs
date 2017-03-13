@@ -8,7 +8,7 @@
                 <img class="media-object" src="<%=a.user.avatar%>" alt=""/>
             </div>
             <div class="media-body">
-                <h4 class="media-heading"><%=a.title%></h4>
+                <h4 class="media-heading"><a href="/articles/detail/<%=a._id%>"><%=a.title%></a></h4>
                 <p class="media-left"><%-a.content%></p>
             </div>
             <div class="media-bottom">
@@ -18,5 +18,17 @@
         </li>
         <%})%>
     </ul>
+    <div class="col-sm-6 col-sm-offset-6">
+        <ul class="pagination">
+            <%
+            for(var i=1;i<totalPage+1;i++){
+            %>
+            <li><a href="/articles/list/<%=i%>/<%=pageSize%>"><%=i%></a></li>
+            <%
+            }
+            %>
+        </ul>
+    </div>
 </div>
+
 <% include ./include/footer.ejs%>
